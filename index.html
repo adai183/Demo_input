@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Input form Demo</title>
+    
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <style>
+
+    
+    </style>  
+  </head>
+
+  <body>
+    
+    <div class="container">
+      <input type="text"  id="codeinput1"> 
+      <button type="button" id="button">submit</button> 
+    </div> 
+  </body>
+  
+  <script type="text/javascript">
+    var example = "DEMO";
+
+    var showDemo = function(){
+      var ar = [];
+      ar = example.split('');
+      // add " " to start the animation with an empty form
+      ar.unshift(" ");
+      for (var i = 0; i< ar.length; i++) {
+        var str="";
+        // here you can see how setTimeout works inside a for-loop
+        setTimeout(function(x) { return function() { 
+        if(x===1){
+          // start over with an empty string to skio whitespace
+          str = "";
+          str = str+ar[x];
+          console.log(str);
+          $("#codeinput1").val(str);  
+        }else{
+          console.log(str);
+          str = str+ar[x];
+          $("#codeinput1").val(str);  
+        }}; 
+      }(i), 500*i); 
+    }
+  };
+
+  window.setInterval(showDemo, 3000);
+  </script>
+</html>
